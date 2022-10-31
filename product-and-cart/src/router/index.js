@@ -1,34 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Products from '../views/Products'
-import PastOrders from '../views/PastOrders'
-// import VueCookies from 'vue-cookies'
 import SignUp from '@/views/SignUp'
-import Login from '@/views/Login'
 import Redirect from '@/oauth/Redirect'
 import BlocklyDisplay from '@/views/BlocklyDisplay'
-// import { store } from '@/store/store'
+import Login from '@/views/Login'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/products',
-    name: 'Products',
-    component: Products
-  },
-  {
-    path: '/past-orders',
-    name: 'PastOrders',
-    component: PastOrders
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
   },
   {
     path: '/signup',
@@ -39,6 +20,11 @@ const routes = [
     path: '/oauth/redir',
     name: 'redirect',
     component: Redirect
+  },
+  {
+    path: '/Login',
+    name: 'login',
+    component: Login
   },
   {
     path: '/blockly',

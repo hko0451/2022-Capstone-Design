@@ -10,24 +10,28 @@
  * @author dcoodien@gmail.com (Dylan Coodien)
  */
 
-import { ref, shallowRef } from 'vue'
 import Blockly from 'blockly'
+import { NavigationController } from '@blockly/keyboard-navigation'
 
 export default {
   name: 'BlocklyComp',
   props: ['options'],
   mounted () {
-    const options = this.options.options || {}
+    const options = this.options || {}
     if (!options.toolbox) {
       options.toolbox = this.$refs.blocklyToolbox
     }
     this.workspace = Blockly.inject(this.$refs.blocklyDiv, options)
+    const navigationController = new NavigationController()
+    navigationController.init()
+    navigationController.addWorkspace(this.workspace)
+    navigationController.enable(this.workspace)
   },
   date () {
     return {
-      blocklyToolbox: ref(),
-      blocklyDiv: ref(),
-      workspace: shallowRef()
+      blocklyToolbox: null,
+      blocklyDiv: null,
+      workspace: null
     }
   }
 }
@@ -37,15 +41,13 @@ export default {
 <template>
   <div>
     <div class="blocklyDiv" ref="blocklyDiv"></div>
-    <xml ref="blocklyToolbox" style="display: none">
-     <slot></slot>
-    </xml>
   </div>
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .blocklyDiv {
+  border: 2px solid blue;
   height: 100%;
   width: 100%;
   text-align: left;
