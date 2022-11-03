@@ -100,7 +100,7 @@
 
       {
         "kind": "category",
-        "name": "Text",
+        "name": "Stocks",
         "colour": "%{BKY_LOOPS_HUE}",
         "contents": [
           {

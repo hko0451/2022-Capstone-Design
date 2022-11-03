@@ -35,7 +35,7 @@ export default {
 </script>
 
 <template>
-  <div id="app">
+  <div id="app-blockly" style="  border: 5px solid yellow;   height: 100%;">
     <BlocklyComp id="blockly" :options="options" ref="foo"></BlocklyComp>
     <p id="code">
       <button v-on:click="showCode()">Show JavaScript</button>
@@ -45,8 +45,8 @@ export default {
 </template>
 
 <style>
-#app {
-  border: 1px solid red;
+#app-blockly {
+
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -59,22 +59,17 @@ body {
 }
 
 #code {
-  border: 2px solid crimson;
   position: absolute;
   right: 0;
   bottom: 0;
   width: 50%;
   height: 50%;
   margin: 0;
-  background-color: beige;
+  background-color: skyblue;
 }
 
 #blockly {
   position: absolute;
-  right: 0;
-  left: 0px;
-  bottom: 0px;
-  top: 48px;
   width: 50%;
   height: 100%;
 }
