@@ -72,7 +72,7 @@ class CustomMarkerSvg extends Blockly.blockRendering.MarkerSvg {
 // eslint-disable-next-line no-unused-vars
 class CustomRenderer extends Blockly.geras.Renderer {
   Constructor (name) {
-    super(name)
+    // super(name)
   }
 
   makeMarkerDrawer (workspace, marker) {
