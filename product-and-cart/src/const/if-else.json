@@ -1,0 +1,42 @@
+{
+  "conditional": {
+    "type": "if-else",
+    "condition": {
+      "type": "condition",
+      "leftVar": {
+        "name": "val1",
+        "value": "12",
+        "type": "intVar"
+      },
+      "expression": {
+        "name": "equal",
+        "type": "expression"
+      },
+      "rightVar": {
+        "name": "val2",
+        "value": "12",
+        "type": "intVar"
+      }
+    },
+    "statements": [
+      {
+        "type": "statement",
+        "blocks": [
+          {
+            "type": "printBk",
+            "message": "Two variables are equal"
+          }
+        ]
+      },
+      {
+        "type": "statement",
+        "blocks": [
+          {
+            "type": "printBk",
+            "message": "Two variables are not equal"
+          }
+        ]
+      }
+    ]
+  }
+}

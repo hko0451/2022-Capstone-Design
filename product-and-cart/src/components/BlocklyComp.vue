@@ -34,6 +34,8 @@ export default {
 
     this.workspace = this.crateWorkspace(this.$refs.blocklyDiv, options, controller)
     controller.enable(this.workspace)
+
+    this.test()
   },
   methods: {
 
@@ -61,6 +63,19 @@ export default {
         options.toolbox = this.$refs.blocklyToolbox
       }
       return options
+    },
+    test () {
+      const workspace = Blockly.getMainWorkspace()
+      const childBlock = workspace.newBlock('controls_if')
+      const block1 = workspace.newBlock('text_print')
+      const block2 = workspace.newBlock('controls_repeat_ext')
+      block1.initSvg()
+      block1.render()
+      block2.initSvg()
+      block2.render()
+      block1.nextConnection.connect(block2.previousConnection)
+      childBlock.initSvg()
+      childBlock.render()
     }
   },
   date () {
