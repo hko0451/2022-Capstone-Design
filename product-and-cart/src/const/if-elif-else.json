@@ -1,0 +1,70 @@
+{
+  "conditional": {
+    "type": "if-elif-else",
+    "condition": [
+      {
+        "type": "Condition",
+        "leftVar": {
+          "name": "val1",
+          "value": "12",
+          "type": "intVar"
+        },
+        "expression": {
+          "name": "equal",
+          "type": "expression"
+        },
+        "rightVar": {
+          "name": "val2",
+          "value": "12",
+          "type": "intVar"
+        }
+      },
+      {
+        "type": "Condition",
+        "leftVar": {
+          "name": "val1",
+          "value": "12",
+          "type": "intVar"
+        },
+        "expression": {
+          "name": "left-bigger",
+          "type": "expression"
+        },
+        "rightVar": {
+          "name": "val2",
+          "value": "12",
+          "type": "intVar"
+        }
+      }
+    ],
+    "statements": [
+      {
+        "type": "statement",
+        "blocks": [
+          {
+            "type": "printBk",
+            "message": "Two variables are equal"
+          }
+        ]
+      },
+      {
+        "type": "statement",
+        "blocks": [
+          {
+            "type": "printBk",
+            "message": "first is bigger than second"
+          }
+        ]
+      },
+      {
+        "type": "statement",
+        "blocks": [
+          {
+            "type": "printBk",
+            "message": "first is bigger than second"
+          }
+        ]
+      }
+    ]
+  }
+}

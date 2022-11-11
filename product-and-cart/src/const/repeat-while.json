@@ -1,0 +1,38 @@
+{
+  "loop": {
+    "type": "repeatWhile",
+    "index": {
+      "name": "index",
+      "type": "intVar",
+      "value": "0"
+    },
+    "condition": {
+      "type": "Condition",
+      "leftVar": {
+        "name": "index",
+        "value": "0",
+        "type": "intVar"
+      },
+      "expression": {
+        "name": "left-bigger",
+        "type": "expression"
+      },
+      "rightVar": {
+        "name": "val2",
+        "value": "12",
+        "type": "intVar"
+      }
+    }
+  ,
+    "loopStatement":
+    {
+      "type": "statement",
+      "blocks": [
+        {
+          "type": "printBk",
+          "message": ""
+        }
+      ]
+    }
+  }
+}
