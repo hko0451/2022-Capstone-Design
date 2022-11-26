@@ -6,6 +6,9 @@ export default {
   OPERATION: 'logic_operation',
   BOOL: 'logic_boolean',
   NEGATION: 'logic_negate',
-  VARIABLE: 'variables_get',
-  SET_VARIABLE: 'variables_set'
+  GET_VARIABLE: 'variables_get',
+  SET_VARIABLE: 'variables_set',
+  REPEAT: 'controls_repeat_ext',
+  NUMBER: 'math_number',
+  PRINT_TEXT: 'text_print'
 }

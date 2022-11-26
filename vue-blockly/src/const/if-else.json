@@ -1,42 +1,41 @@
 {
   "conditional": {
-    "type": "if-else",
+    "type": "controls_if",
     "condition": {
-      "type": "condition",
+      "type": "logic_compare",
       "leftVar": {
-        "name": "val1",
+        "var_id": "var_id_1",
         "value": "12",
-        "type": "intVar"
+        "type": "var"
       },
       "expression": {
-        "name": "equal",
+        "name": "EQ",
         "type": "expression"
       },
       "rightVar": {
-        "name": "val2",
         "value": "12",
-        "type": "intVar"
+        "type": "math_number"
       }
     },
-    "statements": [
+    "else_statements":
       {
         "type": "statement",
         "blocks": [
           {
-            "type": "printBk",
+            "type": "text_print",
             "message": "Two variables are equal"
           }
         ]
       },
+      "do_statements":
       {
         "type": "statement",
         "blocks": [
           {
-            "type": "printBk",
+            "type": "text_print",
             "message": "Two variables are not equal"
           }
         ]
       }
-    ]
   }
 }

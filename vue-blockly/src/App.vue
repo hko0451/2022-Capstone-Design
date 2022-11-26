@@ -56,12 +56,6 @@
 import router from '@/router'
 
 export default {
-  mounted () {
-    window.addEventListener('keyup', this.handleKeyUp)
-  },
-  unmounted () {
-    window.removeEventListener('keyup', this.handleKeyUp)
-  },
   methods: {
     handleKeyUp (e) {
       const key = e.key || e.keyCode

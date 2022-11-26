@@ -1,0 +1,16 @@
+{
+  "loop": {
+    "type": "controls_repeat_ext",
+    "index": "10",
+    "do_statements":
+      {
+        "type": "statement",
+        "blocks": [
+          {
+            "type": "text_print",
+            "message": "hello"
+          }
+        ]
+      }
+  }
+}
