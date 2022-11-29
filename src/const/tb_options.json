@@ -54,30 +54,6 @@
           }
         ]
       },
-
-      {
-        "kind": "category",
-        "name": "Math",
-        "colour": "%{BKY_MATH_HUE}",
-        "contents": [
-          {
-            "kind": "block",
-            "type": "math_number",
-            "fields": {
-              "NUM": "123"
-            }
-          },
-          {
-            "kind": "block",
-            "type": "math_arithmetic"
-          },
-          {
-            "kind": "block",
-            "type": "math_single"
-          }
-        ]
-      },
-
       {
         "kind": "category",
         "name": "Text",
@@ -96,28 +72,7 @@
             "type": "text_print"
           }
         ]
-      },
-
-      {
-        "kind": "category",
-        "name": "Text",
-        "colour": "%{BKY_LOOPS_HUE}",
-        "contents": [
-          {
-            "kind": "block",
-            "type": "stock_buy_simple"
-          },
-          {
-            "kind": "block",
-            "type": "stock_buy_prog"
-          },
-          {
-            "kind": "block",
-            "type": "stock_fetch_price"
-          }
-        ]
       }
-
     ]
   }
 }

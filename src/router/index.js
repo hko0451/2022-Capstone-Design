@@ -1,10 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import SignUp from '@/views/SignUp'
-import Redirect from '@/oauth/Redirect'
 import BlocklyDisplay from '@/views/BlocklyDisplay'
 import Login from '@/views/Login'
-import CodeDisplay from '@/views/CodeDisplay'
+import Code from '@/views/Code'
 
 const routes = [
   {
@@ -18,12 +17,7 @@ const routes = [
     component: SignUp
   },
   {
-    path: '/oauth/redir',
-    name: 'redirect',
-    component: Redirect
-  },
-  {
-    path: '/Login',
+    path: '/login',
     name: 'login',
     component: Login
   },
@@ -34,8 +28,8 @@ const routes = [
   },
   {
     path: '/code',
-    name: 'CodeDisplay',
-    component: CodeDisplay
+    name: 'Code',
+    component: Code
   }
 ]
 
