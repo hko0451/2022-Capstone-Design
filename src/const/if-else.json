@@ -1,0 +1,41 @@
+{
+  "conditional": {
+    "type": "controls_if",
+    "condition": {
+      "type": "logic_compare",
+      "leftVar": {
+        "var_id": "var_id_1",
+        "value": "12",
+        "type": "var"
+      },
+      "expression": {
+        "name": "EQ",
+        "type": "expression"
+      },
+      "rightVar": {
+        "value": "12",
+        "type": "math_number"
+      }
+    },
+    "else_statements":
+      {
+        "type": "statement",
+        "blocks": [
+          {
+            "type": "text_print",
+            "message": "Two variables are equal"
+          }
+        ]
+      },
+      "do_statements":
+      {
+        "type": "statement",
+        "blocks": [
+          {
+            "type": "text_print",
+            "message": "Two variables are not equal"
+          }
+        ]
+      }
+  }
+}
