@@ -19,6 +19,7 @@ import {
 import Json from '@/const/example.json'
 import Stomp from 'webstomp-client'
 import SockJS from 'sockjs-client'
+import { initService } from '@/service/js-interpreter'
 
 export default {
   name: 'BlocklyComp',
@@ -33,7 +34,7 @@ export default {
     const options = this.getOptions()
 
     this.workspace = this.crateWorkspace(this.$refs.blocklyDiv, options)
-
+    initService(this.workspace)
     this.test()
     // this.connect()
   },
@@ -65,6 +66,7 @@ export default {
       const workspace = Blockly.common.getMainWorkspace()
       console.log(Json)
       makeBlockset(Json, workspace)
+      setTimeout(() => workspace.clear(), 3000)
     },
     send () {
       const msg = {

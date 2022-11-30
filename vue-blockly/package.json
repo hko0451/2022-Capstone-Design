@@ -15,6 +15,7 @@
     "bootstrap": "^5.2.2",
     "bootstrap-vue": "^2.23.1",
     "core-js": "^3.6.5",
+    "js-interpreter": "^3.0.1",
     "sockjs-client": "^1.6.1",
     "vue": "^3.2.41",
     "vue-cookies": "^1.8.1",
