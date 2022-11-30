@@ -14,6 +14,7 @@ import Blockly from 'blockly'
 import { CustomCategory } from '@/blocks/category/custom_category'
 // eslint-disable-next-line no-unused-vars
 import {
+  // eslint-disable-next-line no-unused-vars
   makeBlockset
 } from '@/service/block-parser'
 // eslint-disable-next-line no-unused-vars
@@ -21,7 +22,15 @@ import controlJson from '@/const/if-else.json'
 // eslint-disable-next-line no-unused-vars
 import blockSetJson from '@/const/example.json'
 // eslint-disable-next-line no-unused-vars
-import roopJson from '@/const/count-with.json'
+import loopJson from '@/const/count-with.json'
+// eslint-disable-next-line no-unused-vars
+import loopJson1 from '@/const/count-with1.json'
+// eslint-disable-next-line no-unused-vars
+import loopJson2 from '@/const/count-with2.json'
+// eslint-disable-next-line no-unused-vars
+import controlJson1 from '@/const/if-else1.json'
+// eslint-disable-next-line no-unused-vars
+import controlJson2 from '@/const/if-else2.json'
 import Stomp from 'webstomp-client'
 import SockJS from 'sockjs-client'
 
@@ -40,7 +49,7 @@ export default {
     this.workspace = this.crateWorkspace(this.$refs.blocklyDiv, options)
 
     this.test()
-    this.workspace.zoom(240, 0, 5)
+    this.workspace.zoom(1000, 0, 5)
   },
   methods: {
 
@@ -70,14 +79,15 @@ export default {
      * JSON 파싱 부분
      */
     test () {
+      // eslint-disable-next-line no-unused-vars
       const workspace = Blockly.common.getMainWorkspace()
       /**
-       * const/if-else.json => controlJson.conditional make Control
-       * const/example.json => blockSetJson makeBlockset
-       * const/count-with => roopJson.roop makeRoop
+       * const/if-else.json => controlJson
+       * const/example.json => blockSetJson
+       * const/count-with => loopJson
        * method는 block-parser에 있음
        */
-      makeBlockset(blockSetJson, workspace)
+      makeBlockset(controlJson1, workspace)
     },
     send () {
       const msg = {

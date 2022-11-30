@@ -5,8 +5,8 @@
     "contents": [
       {
         "type": "variables_set",
-        "var_id": "var_1_id",
-        "var_name": "var1",
+        "id": "var_1_id",
+        "name": "cnt",
         "var_value": "123"
       }
       ,
@@ -15,7 +15,7 @@
         "condition": {
           "type": "logic_compare",
           "leftVar": {
-            "var_id": "val_1_id",
+            "var_id": "var_1_id",
             "value": "12",
             "type": "var"
           },
@@ -25,30 +25,20 @@
           },
           "rightVar": {
             "name": "val2",
-            "value": "12",
+            "value": "4",
             "type": "math_number"
           }
-        },
-        "else_statements":{
-          "type": "statement",
-          "blocks": [
-            {
-              "type": "text_print",
-              "message": "Two variables are equal"
-            }
-          ]
         },
         "do_statements": {
           "type": "statement",
           "blocks": [
             {
               "type": "text_print",
-              "message": "Two variables are not equal"
+              "message": "Hello World"
             }
           ]
         }
       }
-
     ]
   }
 }
