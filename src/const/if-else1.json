@@ -4,14 +4,7 @@
     "name": "set1",
     "contents": [
       {
-        "type": "variables_set",
-        "id": "var_1_id",
-        "name": "cnt",
-        "value": "123"
-      }
-    ,
-      {
-        "type": "controls_if",
+        "type": "controls_if1",
         "condition": {
           "type": "logic_compare",
           "leftVar": {

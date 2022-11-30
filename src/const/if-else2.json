@@ -11,7 +11,7 @@
       }
     ,
       {
-        "type": "controls_if",
+        "type": "controls_if2",
         "condition": {
           "type": "logic_compare",
           "leftVar": {

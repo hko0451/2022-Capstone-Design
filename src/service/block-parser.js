@@ -1,5 +1,6 @@
 // import { createRequire } from 'module'
 import Type from '@/const/block-type'
+// eslint-disable-next-line no-unused-vars
 import Blockly from 'blockly'
 
 // const require = createRequire(import.meta.url)
@@ -20,12 +21,12 @@ function makeBlockset (json, workspace) {
 function makeConditionVar (varJson, workspace) {
   let ret = null
   if (varJson.type === 'var') {
+    console.log(varJson)
     ret = workspace.newBlock(Type.GET_VARIABLE)
-
     ret.initSvg()
     ret.render()
 
-    ret.setFieldValue(varJson.var_id, 'VAR')
+    ret.setFieldValue(varJson.id, 'VAR')
   } else {
     ret = workspace.newBlock('math_number')
 
@@ -70,19 +71,42 @@ function makeStatements (statementsJson, workspace) {
   return blockader[0]
 }
 
-function makeRoop (roopJson, workspace) {
+function makeLoop (loopJson, workspace) {
   const parentBlock = workspace.newBlock(Type.REPEAT)
   const times = workspace.newBlock(Type.NUMBER)
-  const doStatements = makeStatements(roopJson.do_statements, workspace)
+  const doStatements = makeStatements(loopJson.do_statements, workspace)
 
   parentBlock.initSvg()
   parentBlock.render()
   times.initSvg()
   times.render()
 
-  times.setFieldValue(roopJson.index, 'NUM')
+  times.setFieldValue(loopJson.index, 'NUM')
   parentBlock.getInput('TIMES').connection.connect(times.outputConnection)
   parentBlock.getInput('DO').connection.connect(doStatements.previousConnection)
+  return parentBlock
+}
+
+function makeLoop2 (loopJson, workspace) {
+  const parentBlock = workspace.newBlock(Type.REPEAT)
+  const times = workspace.newBlock(Type.NUMBER)
+
+  parentBlock.initSvg()
+  parentBlock.render()
+  times.initSvg()
+  times.render()
+
+  times.setFieldValue(loopJson.index, 'NUM')
+  parentBlock.getInput('TIMES').connection.connect(times.outputConnection)
+  return parentBlock
+}
+
+function makeLoop1 (loopJson, workspace) {
+  const parentBlock = workspace.newBlock(Type.REPEAT)
+
+  parentBlock.initSvg()
+  parentBlock.render()
+
   return parentBlock
 }
 
@@ -104,24 +128,47 @@ function makeControl (conditionalJson, workspace) {
   const parentBlock = workspace.newBlock(Type.IF_ELSE)
   const conditionJson = conditionalJson.condition
   const controlBlock = makeCondition(conditionJson, workspace)
-  const elStatementsJson = conditionalJson.else_statements
+  // const elStatementsJson = conditionalJson.else_statements
   const doStatementsJson = conditionalJson.do_statements
-  const elStatementBlock = makeStatements(elStatementsJson, workspace)
+  // const elStatementBlock = makeStatements(elStatementsJson, workspace)
   const doStatementsBlock = makeStatements(doStatementsJson, workspace)
 
   parentBlock.initSvg()
   parentBlock.render()
   controlBlock.initSvg()
   controlBlock.render()
-  elStatementBlock.initSvg()
-  elStatementBlock.render()
+  // elStatementBlock.initSvg()
+  // elStatementBlock.render()
   doStatementsBlock.initSvg()
   doStatementsBlock.render()
 
-  parentBlock.domToMutation(Blockly.Xml.textToDom('<xml><mutation else="1"/></xml>').firstChild)
+  // parentBlock.domToMutation(Blockly.Xml.textToDom('<xml><mutation else="1"/></xml>').firstChild)
   parentBlock.getInput('IF0').connection.connect(controlBlock.outputConnection)
-  parentBlock.getInput('ELSE').connection.connect(elStatementBlock.previousConnection)
+  // parentBlock.getInput('ELSE').connection.connect(elStatementBlock.previousConnection)
   parentBlock.getInput('DO0').connection.connect(doStatementsBlock.previousConnection)
+  return parentBlock
+}
+
+function makeControl1 (conditionalJson, workspace) {
+  const parentBlock = workspace.newBlock(Type.IF_ELSE)
+
+  parentBlock.initSvg()
+  parentBlock.render()
+
+  return parentBlock
+}
+
+function makeControl2 (conditionalJson, workspace) {
+  const parentBlock = workspace.newBlock(Type.IF_ELSE)
+  const conditionJson = conditionalJson.condition
+  const controlBlock = makeCondition(conditionJson, workspace)
+
+  parentBlock.initSvg()
+  parentBlock.render()
+  controlBlock.initSvg()
+  controlBlock.render()
+
+  parentBlock.getInput('IF0').connection.connect(controlBlock.outputConnection)
   return parentBlock
 }
 
@@ -145,7 +192,7 @@ function makeBlock (blockJson, workspace) {
   let ret = null
   switch (blockJson.type) {
     case Type.REPEAT: {
-      ret = makeRoop(blockJson, workspace)
+      ret = makeLoop(blockJson, workspace)
       break }
     case Type.IF_ELSE: {
       ret = makeControl(blockJson, workspace)
@@ -158,8 +205,24 @@ function makeBlock (blockJson, workspace) {
       ret = makePrint(blockJson, workspace)
       break
     }
+    case 'controls_if1': {
+      ret = makeControl1(blockJson, workspace)
+      break
+    }
+    case 'controls_if2': {
+      ret = makeControl2(blockJson, workspace)
+      break
+    }
+    case 'controls_repeat_ext1': {
+      ret = makeLoop1(blockJson, workspace)
+      break
+    }
+    case 'controls_repeat_ext2': {
+      ret = makeLoop2(blockJson, workspace)
+      break
+    }
   }
   return ret
 }
 
-export { makeVar, makeControl, makePrint, makeRoop, makeStatements, makeCondition, makeBlockset }
+export { makeVar, makeControl, makePrint, makeLoop, makeStatements, makeCondition, makeBlockset }

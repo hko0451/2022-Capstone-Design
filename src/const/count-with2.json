@@ -4,7 +4,7 @@
     "name": "set1",
     "contents": [
       {
-        "type": "controls_repeat_ext",
+        "type": "controls_repeat_ext2",
         "index": "10",
         "do_statements":
         {
